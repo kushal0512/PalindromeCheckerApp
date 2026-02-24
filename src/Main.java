@@ -2,21 +2,24 @@ public class Main {
 
     public static void main(String[] args) {
 
-        // Hardcoded String
+        // Original String
         String input = "madam";
-        boolean isPalindrome = true;
+        String reversed = "";
 
-        // Check only till half of the string length
-        for (int i = 0; i < input.length() / 2; i++) {
-
-            if (input.charAt(i) != input.charAt(input.length() - 1 - i)) {
-                isPalindrome = false;
-                break;
-            }
+        // Reverse string using loop
+        for (int i = input.length() - 1; i >= 0; i--) {
+            reversed = reversed + input.charAt(i);
         }
 
-        // Print Result
-        System.out.println("Input text: " + input);
-        System.out.println("Is it a Palindrome? : " + isPalindrome);
+        // Display original and reversed
+        System.out.println("Original String : " + input);
+        System.out.println("Reversed String : " + reversed);
+
+        // Compare using equals()
+        if (input.equals(reversed)) {
+            System.out.println("Result : It is a Palindrome");
+        } else {
+            System.out.println("Result : It is NOT a Palindrome");
+        }
     }
 }
