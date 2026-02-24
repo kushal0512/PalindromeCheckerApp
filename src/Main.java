@@ -1,17 +1,22 @@
-public class Main{
+public class Main {
 
     public static void main(String[] args) {
 
-        // Application Details
-        String appName = "Palindrome Checker Management System";
-        String version = "Version 1.0";
+        // Hardcoded String
+        String input = "madam";
+        boolean isPalindrome = true;
 
-        // Welcome Message
-        System.out.println("===================================");
-        System.out.println("        " + appName);
-        System.out.println("        " + version);
-        System.out.println("===================================");
-        System.out.println("Welcome! This application checks whether a string is a palindrome.");
-        System.out.println("Application started successfully.");
+        // Check only till half of the string length
+        for (int i = 0; i < input.length() / 2; i++) {
+
+            if (input.charAt(i) != input.charAt(input.length() - 1 - i)) {
+                isPalindrome = false;
+                break;
+            }
+        }
+
+        // Print Result
+        System.out.println("Input text: " + input);
+        System.out.println("Is it a Palindrome? : " + isPalindrome);
     }
 }
