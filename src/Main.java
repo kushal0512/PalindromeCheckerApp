@@ -1,32 +1,27 @@
-public class Main {
+import java.util.Scanner;
 
+class Main {
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
 
-        // Input with spaces and mixed case
-        String input = "Madam In Eden Im Adam";
+        System.out.println("=== Palindrome Checker App ===");
+        System.out.print("Enter a word or number: ");
+        String input = sc.nextLine();
 
-        // Step 1: Normalize string
         // Remove spaces and convert to lowercase
-        String normalized = input.replaceAll("\\s+", "").toLowerCase();
+        String cleanedInput = input.replaceAll("\\s+", "").toLowerCase();
 
-        boolean isPalindrome = true;
-
-        int start = 0;
-        int end = normalized.length() - 1;
-
-        // Step 2: Apply palindrome logic
-        while (start < end) {
-            if (normalized.charAt(start) != normalized.charAt(end)) {
-                isPalindrome = false;
-                break;
-            }
-            start++;
-            end--;
+        String reversed = "";
+        for (int i = cleanedInput.length() - 1; i >= 0; i--) {
+            reversed += cleanedInput.charAt(i);
         }
 
-        // Display result
-        System.out.println("Original Input : " + input);
-        System.out.println("Normalized Input : " + normalized);
-        System.out.println("Is Palindrome? : " + isPalindrome);
+        if (cleanedInput.equals(reversed)) {
+            System.out.println("Result: It is a Palindrome ✅");
+        } else {
+            System.out.println("Result: It is NOT a Palindrome ❌");
+        }
+
+        sc.close();
     }
 }
