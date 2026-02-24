@@ -4,22 +4,24 @@ class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("=== Palindrome Checker App ===");
-        System.out.print("Enter a word or number: ");
-        String input = sc.nextLine();
+        System.out.println("Palindrome Checker App");
+        System.out.print("Enter a word: ");
+        String str = sc.nextLine();
 
-        // Remove spaces and convert to lowercase
-        String cleanedInput = input.replaceAll("\\s+", "").toLowerCase();
+        int length = str.length();
+        boolean isPalindrome = true;
 
-        String reversed = "";
-        for (int i = cleanedInput.length() - 1; i >= 0; i--) {
-            reversed += cleanedInput.charAt(i);
+        for (int i = 0; i < length / 2; i++) {
+            if (str.charAt(i) != str.charAt(length - 1 - i)) {
+                isPalindrome = false;
+                break;
+            }
         }
 
-        if (cleanedInput.equals(reversed)) {
-            System.out.println("Result: It is a Palindrome ✅");
+        if (isPalindrome) {
+            System.out.println("The given string is a Palindrome.");
         } else {
-            System.out.println("Result: It is NOT a Palindrome ❌");
+            System.out.println("The given string is NOT a Palindrome.");
         }
 
         sc.close();
