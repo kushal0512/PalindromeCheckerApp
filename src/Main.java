@@ -1,29 +1,32 @@
 public class Main {
 
-    // Recursive method
-    public static boolean isPalindrome(String input, int start, int end) {
-
-        // Base condition: If pointers cross or meet
-        if (start >= end) {
-            return true;
-        }
-
-        // If characters don’t match
-        if (input.charAt(start) != input.charAt(end)) {
-            return false;
-        }
-
-        // Recursive call
-        return isPalindrome(input, start + 1, end - 1);
-    }
-
     public static void main(String[] args) {
 
-        String input = "madam";
+        // Input with spaces and mixed case
+        String input = "Madam In Eden Im Adam";
 
-        boolean result = isPalindrome(input, 0, input.length() - 1);
+        // Step 1: Normalize string
+        // Remove spaces and convert to lowercase
+        String normalized = input.replaceAll("\\s+", "").toLowerCase();
 
-        System.out.println("Input : " + input);
-        System.out.println("Is Palindrome? : " + result);
+        boolean isPalindrome = true;
+
+        int start = 0;
+        int end = normalized.length() - 1;
+
+        // Step 2: Apply palindrome logic
+        while (start < end) {
+            if (normalized.charAt(start) != normalized.charAt(end)) {
+                isPalindrome = false;
+                break;
+            }
+            start++;
+            end--;
+        }
+
+        // Display result
+        System.out.println("Original Input : " + input);
+        System.out.println("Normalized Input : " + normalized);
+        System.out.println("Is Palindrome? : " + isPalindrome);
     }
 }
