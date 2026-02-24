@@ -1,21 +1,33 @@
+import java.util.Stack;
+
 public class Main {
-    public static void main(String[] var0) {
-        String var1 = "radar";
-        char[] var2 = var1.toCharArray();
-        int var3 = 0;
-        int var4 = var2.length - 1;
 
-        boolean var5;
-        for(var5 = true; var3 < var4; --var4) {
-            if (var2[var3] != var2[var4]) {
-                var5 = false;
-                break;
-            }
+    public static void main(String[] args) {
 
-            ++var3;
+        // Declare and initialize input string
+        String input = "noon";
+
+        // Create a Stack to store characters
+        Stack<Character> stack = new Stack<>();
+
+        // Push each character of the string into the stack
+        for (char c : input.toCharArray()) {
+            stack.push(c);
         }
 
-        System.out.println("Input : " + var1);
-        System.out.println("Is Palindrome? : " + var5);
+        // Assume palindrome initially
+        boolean isPalindrome = true;
+
+        // Pop from stack and compare with original string
+        for (char c : input.toCharArray()) {
+            if (c != stack.pop()) {
+                isPalindrome = false;
+                break;
+            }
+        }
+
+        // Display result
+        System.out.println("Input : " + input);
+        System.out.println("Is Palindrome? : " + isPalindrome);
     }
 }
